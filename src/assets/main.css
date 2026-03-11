@@ -1,0 +1,157 @@
+/* ═══════════════════════════════════════════════
+   TURISMO WJL — Global Styles
+   Variables, reset, tipografía y animaciones
+═══════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
+
+/* ── Variables ── */
+:root {
+  /* Fondos */
+  --navy:   #07091a;
+  --navy2:  #0d1128;
+  --navy3:  #131830;
+  --navy4:  #1a2040;
+
+  /* Colores de marca */
+  --blue:      #1e4fd8;
+  --blue2:     #2a5ff0;
+  --blue-glow: rgba(30, 79, 216, 0.35);
+  --red:       #d91f2a;
+  --red2:      #f02535;
+  --red-glow:  rgba(217, 31, 42, 0.35);
+  --gold:      #f5a623;
+
+  /* Texto */
+  --white:    #ffffff;
+  --offwhite: #e8eaf5;
+  --gray:     #6b7280;
+  --gray2:    #9ca3af;
+
+  /* Tipografías */
+  --fd: 'Bebas Neue', sans-serif;
+  --fb: 'Outfit', sans-serif;
+  --fm: 'DM Mono', monospace;
+}
+
+/* ── Reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--fb);
+  background: var(--navy);
+  color: var(--white);
+  overflow-x: hidden;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar        { width: 4px; }
+::-webkit-scrollbar-track  { background: var(--navy2); }
+::-webkit-scrollbar-thumb  { background: var(--red); border-radius: 2px; }
+
+/* ── Secciones ── */
+section { padding: 7rem 5%; }
+
+/* ── Section tag ── */
+.s-tag {
+  font-family: var(--fm);
+  font-size: .68rem;
+  color: var(--blue2);
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+}
+.s-tag::before {
+  content: '';
+  width: 28px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--blue), var(--red));
+}
+
+/* ── Section title ── */
+.s-title {
+  font-family: var(--fd);
+  font-size: clamp(2.8rem, 4.5vw, 5rem);
+  line-height: .92;
+  margin-bottom: 1.2rem;
+  letter-spacing: .02em;
+}
+
+/* ── Section subtitle ── */
+.s-sub {
+  color: var(--gray2);
+  font-size: 1rem;
+  line-height: 1.8;
+  max-width: 480px;
+  font-weight: 300;
+}
+
+/* ── Botones ── */
+.btn-p {
+  background: var(--red);
+  color: white;
+  border: none;
+  padding: 1rem 2.4rem;
+  font-family: var(--fb);
+  font-weight: 600;
+  font-size: .88rem;
+  letter-spacing: .05em;
+  cursor: pointer;
+  clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+  transition: all .25s;
+  text-decoration: none;
+  display: inline-block;
+}
+.btn-p:hover {
+  background: var(--red2);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px var(--red-glow);
+}
+
+.btn-s {
+  color: rgba(255,255,255,.8);
+  border: 1px solid rgba(255,255,255,.2);
+  padding: 1rem 2.4rem;
+  font-family: var(--fb);
+  font-weight: 500;
+  font-size: .88rem;
+  letter-spacing: .05em;
+  cursor: pointer;
+  background: transparent;
+  transition: all .25s;
+  text-decoration: none;
+  display: inline-block;
+}
+.btn-s:hover {
+  border-color: var(--blue2);
+  color: var(--blue2);
+  box-shadow: 0 0 20px var(--blue-glow);
+}
+
+/* ── Reveal animation ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.rd1 { transition-delay: .1s; }
+.rd2 { transition-delay: .2s; }
+.rd3 { transition-delay: .3s; }
+
+/* ── Mobile base ── */
+@media (max-width: 900px) {
+  section { padding: 4rem 4%; }
+}
