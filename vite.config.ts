@@ -2,14 +2,14 @@ import { fileURLToPath, URL } from 'node:url'
 
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
     vue(),
-    vueDevTools(),
+    // vueDevTools() — removido para producción
   ],
+  base: '/', // importante para que los assets carguen bien en www.turismowjl.com
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
