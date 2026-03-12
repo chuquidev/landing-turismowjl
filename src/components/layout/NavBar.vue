@@ -59,7 +59,7 @@
 
         <div class="drawer-footer">
           <a href="#contacto" class="drawer-cta" @click="close('#contacto')">Cotizar ahora</a>
-          <a href="https://wa.me/51999000000" class="drawer-wa" target="_blank" rel="noopener">💬 WhatsApp</a>
+          <a href="https://wa.me/51999 713 436" class="drawer-wa" target="_blank" rel="noopener">💬 WhatsApp</a>
         </div>
 
       </div>
