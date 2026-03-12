@@ -22,8 +22,7 @@
 
       <div class="cov-map reveal rd2">
         <div class="cov-map-tag">RUTAS OPERATIVAS</div>
-        <img src="/images/rutas.png"
-          alt="Paisaje andino peruano" loading="lazy" />
+        <img :src="imgRutas" alt="Paisaje andino peruano" loading="lazy" />
         <div class="cov-dot" v-for="d in dots" :key="d.id" :style="d.style"></div>
       </div>
     </div>
@@ -31,7 +30,8 @@
 </template>
 
 <script setup>
-import { routes } from '@/data/content.js'
+import { features, imgRutas, routes} from '@/data/content.js'
+
 
 const dots = [
   { id: 1, style: 'top:30%;left:35%;animation-delay:0s' },

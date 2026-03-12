@@ -3,8 +3,7 @@
     <!-- Imagen lado izquierdo -->
     <div class="about-img-wrap reveal">
       <div class="about-stripe"></div>
-      <img src="/public/images/nosotros.jpg"
-        alt="Flota de buses Turismo WJL" loading="lazy" />
+      <img :src="imgNosotros" alt="Flota de buses Turismo WJL" loading="lazy" />
       <div class="about-corner">
         <div class="about-corner-n">6</div>
         <div class="about-corner-l">Años de<br>trayectoria</div>
@@ -33,7 +32,7 @@
 </template>
 
 <script setup>
-import { features } from '@/data/content.js'
+import { features, imgNosotros } from '@/data/content.js'
 </script>
 
 <style scoped>

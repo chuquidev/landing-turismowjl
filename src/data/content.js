@@ -1,3 +1,23 @@
+// ── Imágenes de servicios
+import imgPasajeros from "@/assets/images/pasajeros.png";
+import imgEncomiendas from "@/assets/images/encomiendas.jpg";
+import imgCarga from "@/assets/images/carga.png";
+import imgCorporativo from "@/assets/images/coorporativo.jpg";
+import imgTurismo from "@/assets/images/turismo.jpg";
+
+// ── Imágenes de flota
+import imgCombi from "@/assets/images/combi.png";
+import imgEjecutiva from "@/assets/images/ejecutiva.png";
+import imgCamioneta from "@/assets/images/camioneta.jpg";
+
+// ── Imagen nosotros
+import imgNosotros from "@/assets/images/nosotros.jpg";
+
+// ── Imagen rutas/cobertura
+import imgRutas from "@/assets/images/rutas.png";
+
+export { imgNosotros, imgRutas };
+
 export const stats = [
   { value: "6", suffix: "+", label: "Años de experiencia" },
   { value: "20", suffix: "", label: "Rutas activas" },
@@ -8,32 +28,32 @@ export const stats = [
 export const services = [
   {
     name: "Transporte de Pasajeros",
-    desc: "Viajes interprovinciales cómodos y seguros. Salidas diarias con Vehiculos modernos, aire acondicionado y GPS en todas las unidades.",
-    img: "/public/images/pasajeros.png",
+    desc: "Viajes interprovinciales cómodos y seguros. Salidas diarias con vehículos modernos, aire acondicionado y GPS en todas las unidades.",
+    img: imgPasajeros,
     featured: true,
   },
   {
     name: "Encomiendas",
     desc: "Envío rápido y seguro de paquetes a nivel nacional. Rastreo en tiempo real y entrega puerta a puerta.",
-    img: "/public/images/encomiendas.jpg",
+    img: imgEncomiendas,
     featured: false,
   },
   {
     name: "Carga Ligera",
     desc: "Transporte de mercadería y equipos hasta 1.5 toneladas. Cobertura en zonas rurales y urbanas.",
-    img: "/public/images/carga.png",
+    img: imgCarga,
     featured: false,
   },
   {
     name: "Servicio Corporativo",
     desc: "Traslado de personal con contratos mensuales, rutas personalizadas y conductores asignados.",
-    img: "/public/images/coorporativo.jpg",
+    img: imgCorporativo,
     featured: false,
   },
   {
     name: "Transporte Turístico",
     desc: "Full day, circuitos regionales y paquetes grupales para agencias, colegios y empresas.",
-    img: "/public/images/turismo.jpg",
+    img: imgTurismo,
     featured: false,
   },
 ];
@@ -58,40 +78,22 @@ export const features = [
 ];
 
 export const vehicles = [
-  {
-    name: "Combi Interprovincial",
-    capacity: "15 pasajeros",
-    img: "public/images/combi.png",
-  },
-  {
-    name: "Minivan Ejecutiva",
-    capacity: "6-8 pasajeros",
-    img: "public/images/ejecutiva.png",
-  },
-  {
-    name: "Camioneta 4x4",
-    capacity: "5 pasajeros",
-    img: "public/images/camioneta.jpg",
-  },
-  {
-    name: "Furgón de Carga",
-    capacity: "hasta 2.5 t",
-    img: "public/images/carga.png",
-  },
+  { name: "Combi Interprovincial", capacity: "15 pasajeros", img: imgCombi },
+  { name: "Minivan Ejecutiva", capacity: "6–8 pasajeros", img: imgEjecutiva },
+  { name: "Camioneta 4x4", capacity: "5 pasajeros", img: imgCamioneta },
+  { name: "Furgón de Carga", capacity: "hasta 2.5 t", img: imgCarga },
 ];
 
 export const routes = [
   // Costa
-  { name: "Chiclayo → Lima", km: "209 km" },
+  { name: "Chiclayo → Lima", km: "770 km" },
   { name: "Chiclayo → Piura", km: "209 km" },
   { name: "Chiclayo → Trujillo", km: "209 km" },
   { name: "Chiclayo → Tumbes", km: "473 km" },
-
   // Sierra
   { name: "Chiclayo → Cajamarca", km: "256 km" },
   { name: "Chiclayo → Huancayo", km: "865 km" },
   { name: "Chiclayo → Cusco", km: "1,420 km" },
-
   // Selva
   { name: "Chiclayo → Tarapoto", km: "1,050 km" },
   { name: "Chiclayo → Pucallpa", km: "1,280 km" },
@@ -101,10 +103,11 @@ export const contactInfo = [
   {
     icon: "📍",
     label: "Dirección",
-    value: "Av. Principal 1200, Chiclayo, Lambayeque",
+    value:
+      "Parque de los Mecánicos, esquina de Calle San Isidro y Calle Labradores Chiclayo",
   },
   { icon: "📞", label: "Teléfono", value: "+51 999 713 436" },
-  { icon: "✉️", label: "Email", value: "turismowjl@gmail.com" },
+  { icon: "✉️", label: "Email", value: "turismowjl1@gmail.com" },
   { icon: "🕐", label: "Horario", value: "Lun–Dom · 7:00 am – 10:00 pm" },
 ];
 

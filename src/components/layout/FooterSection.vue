@@ -12,7 +12,7 @@
           <span class="fll">L</span>
         </div>
         <div class="slogan">"Uniendo Familias"</div>
-        <p>Empresa de transporte con más de 25 años conectando el Perú con seguridad, puntualidad y calidez humana.</p>
+        <p>Empresa de transporte con más de 6 años conectando el Perú con seguridad, puntualidad y calidez humana.</p>
       </div>
 
       <!-- Col: Servicios -->
@@ -41,7 +41,7 @@
     </div>
 
     <div class="footer-bottom">
-      <p>© 2025 Turismo WJL E.I.R.L. — Todos los derechos reservados</p>
+      <p>© 2026 Turismo WJL E.I.R.L. — Todos los derechos reservados</p>
       <p>Autorizado por MTC</p>
     </div>
   </footer>
