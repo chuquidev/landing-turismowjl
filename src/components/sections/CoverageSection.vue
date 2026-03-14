@@ -5,8 +5,7 @@
         <div class="s-tag">Dónde llegamos</div>
         <h2 class="s-title reveal">COBERTURA<br>NACIONAL</h2>
         <p class="s-sub">
-          Rutas interprovinciales en todo el país. Conectamos las principales ciudades del Perú,
-          ofreciendo seguridad, puntualidad y comodidad en cada viaje. Nuestro compromiso es
+          Rutas interprovinciales en todo el país. Huarmaca, Chiclayo, Lima, Piura, Olmos, Trujillo, Bagua.  Conectamos las principales ciudades del Perú, ofreciendo seguridad, puntualidad y comodidad en cada viaje. Nuestro compromiso es
           acercar personas, familias y negocios, creando experiencias de transporte confiables
           y accesibles para todos.
         </p>
