@@ -2,7 +2,7 @@
   <section class="hero" id="inicio">
     <!-- Imagen de fondo -->
     <div class="hero-img">
-      <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=1800&q=80&auto=format&fit=crop"
+      <img src="/src/assets/images/banner1.png"
         alt="Bus de turismo en carretera" loading="eager" />
     </div>
 

@@ -11,7 +11,7 @@ import imgEjecutiva from "@/assets/images/ejecutiva.png";
 import imgCamioneta from "@/assets/images/camioneta.jpg";
 
 // ── Imagen nosotros
-import imgNosotros from "@/assets/images/nosotros.jpg";
+import imgNosotros from "@/assets/images/nosotros.png";
 
 // ── Imagen rutas/cobertura
 import imgRutas from "@/assets/images/rutas.png";
@@ -20,9 +20,9 @@ export { imgNosotros, imgRutas };
 
 export const stats = [
   { value: "6", suffix: "+", label: "Años de experiencia" },
-  { value: "20", suffix: "", label: "Rutas activas" },
-  { value: "50", suffix: "K", label: "Clientes atendidos" },
-  { value: "5", suffix: "", label: "Unidades en flota" },
+  { value: "8", suffix: "", label: "Rutas activas" },
+  { value: "10", suffix: "K", label: "Clientes atendidos" },
+  { value: "4", suffix: "", label: "Unidades en flota" },
 ];
 
 export const services = [
@@ -79,24 +79,21 @@ export const features = [
 
 export const vehicles = [
   { name: "Combi Interprovincial", capacity: "15 pasajeros", img: imgCombi },
-  { name: "Minivan Ejecutiva", capacity: "6–8 pasajeros", img: imgEjecutiva },
+  { name: "Combi Interprovincial", capacity: "15 pasajeros", img: imgNosotros },
   { name: "Camioneta 4x4", capacity: "5 pasajeros", img: imgCamioneta },
-  { name: "Furgón de Carga", capacity: "hasta 2.5 t", img: imgCarga },
+  { name: "Furgón de Carga", capacity: "hasta 1.2 t", img: imgCarga },
 ];
 
 export const routes = [
-  // Costa
   { name: "Chiclayo → Lima", km: "770 km" },
   { name: "Chiclayo → Piura", km: "209 km" },
   { name: "Chiclayo → Trujillo", km: "209 km" },
-  { name: "Chiclayo → Tumbes", km: "473 km" },
-  // Sierra
+  { name: "Chiclayo → Olmos", km: "106 km" },
   { name: "Chiclayo → Cajamarca", km: "256 km" },
-  { name: "Chiclayo → Huancayo", km: "865 km" },
-  { name: "Chiclayo → Cusco", km: "1,420 km" },
-  // Selva
+  { name: "Chiclayo → Huarmaca", km: "211 km" },
+  { name: "Huarmaca → Chiclayo", km: "211 km" },
   { name: "Chiclayo → Tarapoto", km: "1,050 km" },
-  { name: "Chiclayo → Pucallpa", km: "1,280 km" },
+  { name: "Huarmaca → Piura", km: "286 km" },
 ];
 
 export const contactInfo = [
@@ -104,7 +101,7 @@ export const contactInfo = [
     icon: "📍",
     label: "Dirección",
     value:
-      "Parque de los Mecánicos, esquina de Calle San Isidro y Calle Labradores Chiclayo",
+      "Parque de los Mecánicos, esquina de la Calle San Isidro y Calle Labradores Chiclayo",
   },
   { icon: "📞", label: "Teléfono", value: "+51 999 713 436" },
   { icon: "✉️", label: "Email", value: "turismowjl1@gmail.com" },
