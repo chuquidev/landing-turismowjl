@@ -13,9 +13,6 @@
             </div>
           </div>
         </div>
-        <a href="https://wa.me/+51999713436" class="wa-btn" target="_blank" rel="noopener">
-          Contactar por WhatsApp
-        </a>
       </div>
 
       <div class="form-wrap reveal rd2">
@@ -54,8 +51,12 @@
           <label>Observaciones</label>
           <textarea v-model="form.message" placeholder="Fecha, número de pasajeros, detalles adicionales..."></textarea>
         </div>
+
+        <!-- Error de validación -->
+        <p v-if="error" class="form-error">{{ error }}</p>
+
         <button class="btn-submit" @click="submitForm">
-          <span class="btn-txt">{{ submitted ? '✓ Solicitud enviada exitosamente' : 'Enviar solicitud' }}</span>
+          <span class="btn-txt">💬 Enviar por WhatsApp</span>
         </button>
       </div>
     </div>
@@ -66,20 +67,52 @@
 import { ref } from 'vue'
 import { contactInfo, services } from '@/data/content.js'
 
-const submitted = ref(false)
+const WHATSAPP_NUMBER = '51999713436' // Sin + ni espacios
+
+const error = ref('')
 const form = ref({
   name: '', phone: '', email: '',
   service: '', origin: '', destination: '', message: '',
 })
 
 function submitForm() {
-  if (!form.value.name || !form.value.email) return
-  submitted.value = true
-  setTimeout(() => {
-    submitted.value = false
-    form.value = { name: '', phone: '', email: '', service: '', origin: '', destination: '', message: '' }
-  }, 3000)
+  if (!form.value.name) {
+    error.value = 'Por favor ingresa tu nombre.'
+    return
+  }
+  if (!form.value.phone) {
+    error.value = 'Por favor ingresa tu teléfono.'
+    return
+  }
+  if (!form.value.service) {
+    error.value = 'Por favor selecciona un tipo de servicio.'
+    return
+  }
+
+  error.value = ''
+
+  const msg = [
+    'NUEVA SOLICITUD DE SERVICIO',
+    `Nombre: ${form.value.name}`,
+    `Telefono: ${form.value.phone}`,
+    form.value.email ? `Email: ${form.value.email}` : '',
+    `Servicio: ${form.value.service}`,
+    form.value.origin ? `Origen: ${form.value.origin}` : '',
+    form.value.destination ? `Destino: ${form.value.destination}` : '',
+    form.value.message ? `Observaciones: ${form.value.message}` : '',
+  ]
+    .filter(Boolean)
+    .join('\n')
+
+  const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`
+  window.open(url, '_blank')
+
+  form.value = {
+    name: '', phone: '', email: '',
+    service: '', origin: '', destination: '', message: '',
+  }
 }
+
 </script>
 
 <style scoped>
@@ -138,31 +171,6 @@ function submitForm() {
 .ci-val {
   font-size: .92rem;
   color: var(--offwhite);
-}
-
-.wa-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: .7rem;
-  background: #25D366;
-  color: white;
-  border: none;
-  padding: 1rem;
-  font-family: var(--fb);
-  font-weight: 600;
-  font-size: .85rem;
-  cursor: pointer;
-  text-decoration: none;
-  margin-top: 1.5rem;
-  width: 100%;
-  transition: all .25s;
-}
-
-.wa-btn:hover {
-  background: #1ebe5d;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(37, 211, 102, .3);
 }
 
 .form-wrap {
@@ -233,9 +241,20 @@ function submitForm() {
   background: var(--navy3);
 }
 
+/* Error */
+.form-error {
+  color: var(--red);
+  font-size: .82rem;
+  margin-bottom: 1rem;
+  padding: .6rem 1rem;
+  border: 1px solid rgba(217, 31, 42, .3);
+  background: rgba(217, 31, 42, .06);
+}
+
+/* Botón */
 .btn-submit {
   width: 100%;
-  background: linear-gradient(90deg, var(--blue), var(--red));
+  background: #25D366;
   color: white;
   border: none;
   padding: 1.05rem;
@@ -249,22 +268,10 @@ function submitForm() {
   overflow: hidden;
 }
 
-.btn-submit::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, var(--red), var(--blue));
-  opacity: 0;
-  transition: opacity .4s;
-}
-
-.btn-submit:hover::before {
-  opacity: 1;
-}
-
 .btn-submit:hover {
+  background: #1ebe5d;
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(30, 79, 216, .35);
+  box-shadow: 0 10px 30px rgba(37, 211, 102, .3);
 }
 
 .btn-txt {

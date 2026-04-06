@@ -104,7 +104,7 @@ export const contactInfo = [
       "Parque de los Mecánicos, esquina de la Calle San Isidro y Calle Labradores Chiclayo",
   },
   { icon: "📞", label: "Teléfono", value: "+51 999 713 436" },
-  { icon: "✉️", label: "Email", value: "turismowjl1@gmail.com" },
+  { icon: "✉️", label: "Email", value: "Wilsontineo764@gmail.com" },
   { icon: "🕐", label: "Horario", value: "Lun–Dom · 7:00 am – 10:00 pm" },
 ];
 
