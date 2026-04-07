@@ -6,7 +6,9 @@
         <h2 class="s-title">SOLICITA<br>TU<br>SERVICIO</h2>
         <div class="contact-items">
           <div class="ci" v-for="c in contactInfo" :key="c.label">
-            <div class="ci-box">{{ c.icon }}</div>
+            <div class="ci-box">
+              <component :is="icons[c.icon]" :size="20" color="white" />
+            </div>
             <div>
               <div class="ci-lbl">{{ c.label }}</div>
               <div class="ci-val">{{ c.value }}</div>
@@ -52,11 +54,10 @@
           <textarea v-model="form.message" placeholder="Fecha, número de pasajeros, detalles adicionales..."></textarea>
         </div>
 
-        <!-- Error de validación -->
         <p v-if="error" class="form-error">{{ error }}</p>
 
         <button class="btn-submit" @click="submitForm">
-          <span class="btn-txt">💬 Enviar por WhatsApp</span>
+          <span class="btn-txt">Enviar por WhatsApp</span>
         </button>
       </div>
     </div>
@@ -65,9 +66,12 @@
 
 <script setup>
 import { ref } from 'vue'
+import { MapPin, Phone, Mail, Clock } from 'lucide-vue-next'
 import { contactInfo, services } from '@/data/content.js'
 
-const WHATSAPP_NUMBER = '51999713436' // Sin + ni espacios
+const icons = { MapPin, Phone, Mail, Clock }
+
+const WHATSAPP_NUMBER = '51999713436'
 
 const error = ref('')
 const form = ref({
@@ -95,11 +99,11 @@ function submitForm() {
     'NUEVA SOLICITUD DE SERVICIO',
     `Nombre: ${form.value.name}`,
     `Telefono: ${form.value.phone}`,
-    form.value.email ? `Email: ${form.value.email}` : '',
+    form.value.email       ? `Email: ${form.value.email}`           : '',
     `Servicio: ${form.value.service}`,
-    form.value.origin ? `Origen: ${form.value.origin}` : '',
-    form.value.destination ? `Destino: ${form.value.destination}` : '',
-    form.value.message ? `Observaciones: ${form.value.message}` : '',
+    form.value.origin      ? `Origen: ${form.value.origin}`         : '',
+    form.value.destination ? `Destino: ${form.value.destination}`   : '',
+    form.value.message     ? `Observaciones: ${form.value.message}` : '',
   ]
     .filter(Boolean)
     .join('\n')
@@ -112,7 +116,6 @@ function submitForm() {
     service: '', origin: '', destination: '', message: '',
   }
 }
-
 </script>
 
 <style scoped>
@@ -135,157 +138,80 @@ function submitForm() {
   margin-top: 2.5rem;
 }
 
-.ci {
-  display: flex;
-  gap: 1.2rem;
-  align-items: flex-start;
-}
-
+.ci            { display: flex; gap: 1.2rem; align-items: flex-start; }
 .ci-box {
-  width: 46px;
-  height: 46px;
-  flex-shrink: 0;
+  width: 46px; height: 46px; flex-shrink: 0;
   background: rgba(30, 79, 216, .1);
   border: 1px solid rgba(30, 79, 216, .25);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.1rem;
+  display: flex; align-items: center; justify-content: center;
   transition: all .3s;
 }
-
 .ci:hover .ci-box {
   background: rgba(217, 31, 42, .12);
   border-color: rgba(217, 31, 42, .4);
 }
-
 .ci-lbl {
-  font-family: var(--fm);
-  font-size: .62rem;
-  color: var(--blue2);
-  letter-spacing: .15em;
-  text-transform: uppercase;
-  margin-bottom: .2rem;
+  font-family: var(--fm); font-size: .62rem;
+  color: var(--blue2); letter-spacing: .15em;
+  text-transform: uppercase; margin-bottom: .2rem;
 }
-
-.ci-val {
-  font-size: .92rem;
-  color: var(--offwhite);
-}
+.ci-val { font-size: .92rem; color: var(--offwhite); }
 
 .form-wrap {
   background: var(--navy2);
   border: 1px solid rgba(30, 79, 216, .15);
-  padding: 2.5rem;
-  position: relative;
+  padding: 2.5rem; position: relative;
 }
-
 .form-wrap::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
   background: linear-gradient(90deg, var(--blue), var(--red));
 }
 
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-
-.fg {
-  margin-bottom: 1.2rem;
-}
-
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.fg       { margin-bottom: 1.2rem; }
 .fg label {
-  display: block;
-  font-family: var(--fm);
-  font-size: .62rem;
-  color: var(--blue2);
-  letter-spacing: .15em;
-  text-transform: uppercase;
-  margin-bottom: .5rem;
+  display: block; font-family: var(--fm); font-size: .62rem;
+  color: var(--blue2); letter-spacing: .15em;
+  text-transform: uppercase; margin-bottom: .5rem;
 }
-
-.fg input,
-.fg select,
-.fg textarea {
-  width: 100%;
-  background: var(--navy3);
+.fg input, .fg select, .fg textarea {
+  width: 100%; background: var(--navy3);
   border: 1px solid rgba(255, 255, 255, .07);
-  color: var(--white);
-  padding: .85rem 1rem;
-  font-family: var(--fb);
-  font-size: .9rem;
-  transition: all .25s;
-  outline: none;
+  color: var(--white); padding: .85rem 1rem;
+  font-family: var(--fb); font-size: .9rem;
+  transition: all .25s; outline: none;
+  border-radius: 8px;
 }
-
-.fg input:focus,
-.fg select:focus,
-.fg textarea:focus {
+.fg input:focus, .fg select:focus, .fg textarea:focus {
   border-color: rgba(30, 79, 216, .5);
   background: var(--navy4);
   box-shadow: 0 0 0 3px rgba(30, 79, 216, .08);
 }
+.fg textarea  { min-height: 90px; resize: vertical; }
+.fg select option { background: var(--navy3); }
 
-.fg textarea {
-  min-height: 90px;
-  resize: vertical;
-}
-
-.fg select option {
-  background: var(--navy3);
-}
-
-/* Error */
 .form-error {
-  color: var(--red);
-  font-size: .82rem;
-  margin-bottom: 1rem;
-  padding: .6rem 1rem;
-  border: 1px solid rgba(217, 31, 42, .3);
+  color: var(--red); font-size: .82rem; margin-bottom: 1rem;
+  padding: .6rem 1rem; border: 1px solid rgba(217, 31, 42, .3);
   background: rgba(217, 31, 42, .06);
 }
 
-/* Botón */
 .btn-submit {
-  width: 100%;
-  background: #25D366;
-  color: white;
-  border: none;
-  padding: 1.05rem;
-  font-family: var(--fb);
-  font-weight: 600;
-  font-size: .88rem;
-  letter-spacing: .06em;
-  cursor: pointer;
-  transition: all .3s;
-  position: relative;
-  overflow: hidden;
+  width: 100%; background: #25D366;
+  color: white; border: none; padding: 1.05rem;
+  font-family: var(--fb); font-weight: 600;
+  font-size: .88rem; letter-spacing: .06em;
+  cursor: pointer; transition: all .3s;
+  position: relative; overflow: hidden;
 }
-
 .btn-submit:hover {
-  background: #1ebe5d;
-  transform: translateY(-2px);
+  background: #1ebe5d; transform: translateY(-2px);
   box-shadow: 0 10px 30px rgba(37, 211, 102, .3);
 }
-
-.btn-txt {
-  position: relative;
-  z-index: 1;
-}
+.btn-txt { position: relative; z-index: 1; }
 
 @media (max-width: 900px) {
-  .contact-inner {
-    grid-template-columns: 1fr;
-  }
-
-  .form-row {
-    grid-template-columns: 1fr;
-  }
+  .contact-inner { grid-template-columns: 1fr; }
+  .form-row      { grid-template-columns: 1fr; }
 }
 </style>

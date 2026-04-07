@@ -59,7 +59,11 @@
 
         <div class="drawer-footer">
           <a href="#contacto" class="drawer-cta" @click="close('#contacto')">Cotizar ahora</a>
-          <a href="https://wa.me/51999 713 436" class="drawer-wa" target="_blank" rel="noopener">💬 WhatsApp</a>
+          <a href="https://wa.me/51999713436?text=Hola%20Turismo%20WJL%2C%20quisiera%20informaci%C3%B3n%20sobre%20sus%20servicios."
+          class="drawer-wa"
+          target="_blank"
+          rel="noopener"
+          >WhatsApp</a>
         </div>
 
       </div>
